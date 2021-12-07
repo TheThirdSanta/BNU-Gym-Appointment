@@ -14,15 +14,14 @@ driver.maximize_window()
 driver.get("http://172.16.213.7/gymbook/gymbook/gymBookAction.do?ms=viewGymBook&gymnasium_id=2&viewType=m")
 driver.implicitly_wait(1)
 #""内输入数字京师学号和密码
-name = driver.find_element_by_id("un").send_keys("202011081027")
+name = driver.find_element_by_id("un").send_keys(" ")
 
-password = driver.find_element_by_id('pd').send_keys("jerry777")
+password = driver.find_element_by_id('pd').send_keys(" ")
 
 
 element = driver.find_element_by_id('index_login_btn')
 element.click()
 #弹窗等待同意按钮元素出现，可以修改一下加一个判定
-#sleep(1)
 ele = driver.find_element_by_xpath('//*[@id="attentionModal"]/div[3]/button')
 ele.click()
 
@@ -39,13 +38,11 @@ driver.find_element_by_xpath('//*[@id="resourceTd_50407"]').click()
 driver.find_element_by_xpath('/html/body/table/tbody/tr[8]/td[10]').click()
 driver.find_element_by_xpath('//*[@id="resourceTd_50405"]').click()
 driver.find_element_by_xpath('//*[@id="resourceTd_50455"]').click()
-
-#sleep(1)
 driver.switch_to.default_content()
 #点击预约按钮
 yuyue = driver.find_element_by_xpath('//*[@id="box-0"]/div/div/div[6]/span/a/span')
 yuyue.click()
-#sleep(1)
+
 #生成验证码图片
 img = driver.find_element_by_xpath('//*[@id="kaptchaImage"]')
 driver.save_screenshot("C:/Users/78793/Desktop/1.jpg")
@@ -252,7 +249,5 @@ if __name__=='__main__':
 
 #验证码填写并点击确认
 driver.find_element_by_xpath('//*[@id="checkcodeuser"]').send_keys(result)
-#sleep(1)
-
 driver.find_element_by_xpath('//*[@id="contactCompanion"]/div[3]/a[1]').click()
 sleep(20)
